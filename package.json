@@ -1,0 +1,31 @@
+{
+  "name": "moneys-map-obrigado",
+  "version": "1.0.0",
+  "description": "Página de obrigado e agendamento da Reunião de Implementação (Money's Map)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ribeiro-guilhermea/obrigado.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ribeiro-guilhermea/obrigado/issues"
+  },
+  "homepage": "https://github.com/ribeiro-guilhermea/obrigado#readme",
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.6.0",
+    "@cloudflare/workers-types": "^5.20261107.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.12",
+    "wrangler": "^4.158.0"
+  },
+  "private": true,
+  "type": "module"
+}

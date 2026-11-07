@@ -1,0 +1,43 @@
+{
+  // Configuração do Worker na Cloudflare.
+  // Valores secretos (senhas e tokens) NÃO ficam aqui: são cadastrados como "Secrets"
+  // no painel da Cloudflare. Veja o README.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "moneys-map-obrigado",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Páginas e arquivos estáticos (HTML, CSS, JS) da pasta public/.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": ["/api/*", "/agendar/*"]
+  },
+
+  // Banco de dados D1. Na primeira publicação a Cloudflare cria o banco sozinha.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "moneys-map-obrigado"
+    }
+  ],
+
+  // Tarefas agendadas (horário UTC; Brasília = UTC-3).
+  // "*/15 * * * *"  -> a cada 15 minutos: expira janelas e envia lembretes.
+  // "30 10 * * 1-5" -> 10:30 UTC = 07:30 de Brasília, seg a sex: resumo diário no Telegram.
+  "triggers": {
+    "crons": ["*/15 * * * *", "30 10 * * 1-5"]
+  },
+
+  // Configurações não secretas. Quase todas também podem ser alteradas pelo painel
+  // (/admin > Configurações), sem precisar mexer aqui.
+  "vars": {
+    "EMAIL_PROVIDER": "resend",
+    "EMAIL_FROM_NAME": "Sterling",
+    "EMAIL_FROM_ADDRESS": "onboarding@resend.dev"
+  },
+
+  "observability": { "enabled": true }
+}
