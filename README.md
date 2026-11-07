@@ -121,11 +121,14 @@ Senhas e chaves ficam guardadas como "segredos" na Cloudflare, nunca no código.
 
 1. No Telegram, crie um **grupo** (ex.: "Comercial Money's Map") com as pessoas do time.
 2. Adicione o bot ao grupo (procure pelo usuário dele, ex.: `@moneysmap_avisos_bot`).
-3. Envie qualquer mensagem no grupo, por exemplo `oi`.
+3. No grupo, envie um **comando** citando o bot, trocando pelo usuário dele:
+   `/start@moneysmap_avisos_bot`
+   (Uma mensagem comum como "oi" **não funciona**: por padrão o bot fica em "modo privacidade" e só enxerga comandos e menções a ele.)
 4. No navegador, abra este endereço trocando `SEU_TOKEN` pelo token do bot:
    `https://api.telegram.org/botSEU_TOKEN/getUpdates`
 5. Procure o trecho `"chat":{"id":-100...`. O número (geralmente negativo, começando com `-100`) é o **chat_id**. Copie com o sinal de menos.
-   - Se a página mostrar só `{"ok":true,"result":[]}`, envie outra mensagem no grupo e recarregue.
+   - Se a página mostrar só `{"ok":true,"result":[]}`: no @BotFather envie `/setprivacy`, escolha o bot e toque em **Disable**. Depois **remova o bot do grupo e adicione de novo**, envie uma mensagem no grupo e recarregue o endereço.
+   - Se mostrar `"ok":false`, o token no endereço está incompleto ou errado.
 6. Cadastre esse número como `TELEGRAM_CHAT_ID` (etapa 3).
 7. No painel, vá em **Ajustes** › **Enviar mensagem de teste no Telegram**. A mensagem deve chegar no grupo.
 
