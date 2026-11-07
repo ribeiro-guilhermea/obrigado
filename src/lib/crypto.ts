@@ -37,7 +37,9 @@ export function safeEqual(a: string, b: string): boolean {
   return r === 0;
 }
 
-const PBKDF2_ITER = 100_000; // limite máximo aceito pelo Worker
+// 20 mil iterações cabem no limite de CPU do plano gratuito (~10ms por requisição).
+// O número fica gravado junto do hash, então pode ser aumentado no futuro sem quebrar senhas antigas.
+const PBKDF2_ITER = 20_000;
 
 export async function hashPassword(password: string): Promise<string> {
   const salt = crypto.getRandomValues(new Uint8Array(16));
