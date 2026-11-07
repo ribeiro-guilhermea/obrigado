@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Compra confirmada · Money's Map</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#060a1a">
+  <meta name="referrer" content="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/tokens.css">
+  <link rel="stylesheet" href="/assets/ui.css">
+  <link rel="stylesheet" href="/assets/obrigado.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+    <div class="grid-fx"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <!-- Para trocar pelo logotipo em SVG: substitua o conteúdo do <span class="logo"> por <img src="/assets/logo.svg" alt="Money's Map"> -->
+      <span class="logo"><span class="logo-mark" aria-hidden="true"></span>Money's Map</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow eyebrow--dot reveal">✓ Compra confirmada</span>
+        <h1 class="h1 reveal" style="--d:.06s" id="hero-title">Falta <span class="grad-text">um passo</span> pra você começar</h1>
+        <p class="lead reveal" style="--d:.12s" id="hero-subtitle">Assista ao vídeo e agende agora sua Reunião de Implementação. É nela que o Money's Map fica pronto para usar na sua IA.</p>
+        <ul class="trust-strip reveal" style="--d:.18s">
+          <li>Compra confirmada</li>
+          <li>Acesso no seu e-mail</li>
+          <li id="trust-deadline">Bônus garantido por 5 dias úteis</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. Vídeo -->
+    <section class="video-section">
+      <div class="container">
+        <div class="media-frame reveal">
+          <div class="media-inner" id="video">
+            <div class="media-empty">Assista ao vídeo de boas-vindas assim que ele estiver disponível.</div>
+          </div>
+        </div>
+        <p style="text-align:center;margin:22px 0 0">
+          <a class="btn btn-primary" href="#agendar">Agendar minha reunião</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Próximos passos -->
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Seus próximos passos</span>
+          <h2 class="h2">Três passos e <span class="grad-text">pronto</span></h2>
+        </div>
+        <div class="steps">
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">📩</div>
+            <div class="step-num">PASSO 1</div>
+            <h3 class="h3">Confira seu e-mail</h3>
+            <p>O acesso ao Money's Map chega no e-mail que a Kiwify enviou. Olhe também a caixa de spam e promoções.</p>
+          </article>
+          <article class="card reveal" style="--d:.08s">
+            <div class="card-icon" aria-hidden="true">🗓️</div>
+            <div class="step-num">PASSO 2</div>
+            <h3 class="h3">Agende sua implementação</h3>
+            <p>Escolha agora o melhor dia e horário. O bônus só vale se a reunião for agendada dentro do prazo.</p>
+          </article>
+          <article class="card reveal" style="--d:.16s">
+            <div class="card-icon" aria-hidden="true">💬</div>
+            <div class="step-num">PASSO 3</div>
+            <h3 class="h3">Aguarde nosso contato no WhatsApp</h3>
+            <p>Nosso time envia o link do Zoom e as orientações para a reunião pelo WhatsApp.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Bônus -->
+    <section>
+      <div class="container">
+        <div class="bonus">
+          <div class="card-feature reveal">
+            <span class="float-badge">Bônus exclusivo</span>
+            <h2 class="h2" style="font-size:clamp(26px,4vw,34px)">Reunião de Implementação</h2>
+            <p class="price"><s>R$ <span data-bonus-value>197</span></s><strong class="grad-text">grátis</strong></p>
+            <p style="margin:0">Configuramos o Money's Map na sua IA e mostramos como usar, ao vivo pelo Zoom.</p>
+            <p class="caption" style="margin:0">Grátis se agendada até <strong id="bonus-deadline-text" style="color:var(--ink)">o 5º dia útil após a compra</strong>.</p>
+          </div>
+          <div class="bonus-numbers">
+            <div class="card card-number reveal" style="--d:.08s" id="card-days">
+              <div class="big-number" id="days-left">5</div>
+              <div class="caption">dias úteis restantes</div>
+            </div>
+            <div class="card card-number reveal" style="--d:.16s" id="card-date">
+              <div class="big-number is-date" id="deadline-short">--/--</div>
+              <div class="caption">data limite para agendar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Agendamento -->
+    <section id="agendar" style="scroll-margin-top:80px">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Agende agora</span>
+          <h2 class="h2">Escolha seu <span class="grad-text">horário</span></h2>
+          <p class="caption" style="margin:0">Todos os horários estão no horário de Brasília.</p>
+        </div>
+        <div class="card booking-card" id="booking" aria-live="polite">
+          <noscript>
+            <div class="notice notice--warn">Para agendar, ative o JavaScript do navegador ou use o link enviado para o seu e-mail.</div>
+          </noscript>
+          <div class="status-box" id="booking-loading">
+            <div class="spinner" aria-hidden="true"></div>
+            <p>Carregando…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Regras -->
+    <section>
+      <div class="container">
+        <div class="card rules-card reveal">
+          <h3 class="h3">Regras da Reunião de Implementação</h3>
+          <ul class="check-list">
+            <li>Depois de agendada, a reunião não pode ser cancelada nem remarcada pela página.</li>
+            <li>Se você faltar, perde o bônus. Não há reposição.</li>
+            <li>O link do Zoom é enviado pelo nosso time no WhatsApp.</li>
+            <li>O bônus vale só para agendamentos feitos dentro do prazo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span class="logo"><span class="logo-mark" aria-hidden="true"></span>Money's Map</span>
+      <p style="margin:0" id="footer-text">Money's Map. Organize seu dinheiro com clareza.</p>
+      <p style="margin:0" id="footer-support" hidden>Suporte: <a href="#" id="support-link"></a></p>
+    </div>
+  </footer>
+
+  <script src="/assets/obrigado.js" defer></script>
+</body>
+</html>

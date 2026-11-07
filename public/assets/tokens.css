@@ -1,0 +1,62 @@
+/*
+  Money's Map — tokens de design (fonte única de cores, fontes e formas).
+  Usado pela página de obrigado, pelo painel e, no futuro, pela página de vendas.
+  Fontes (Google Fonts) carregadas no <head> de cada página com display=swap:
+  https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap
+*/
+:root {
+  /* Fundos */
+  --bg: #060a1a;
+  --bg-2: #0a1130;
+  --bg-85: rgba(6, 10, 26, 0.85);
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --stroke: rgba(120, 150, 255, 0.14);
+  --stroke-2: rgba(120, 150, 255, 0.28);
+
+  /* Texto */
+  --ink: #eef2ff;
+  --ink-soft: #aab4d8;
+  --ink-dim: #6c78a3;
+
+  /* Cores */
+  --blue: #2563ff;
+  --blue-lt: #4f8bff;
+  --blue-deep: #0b2a8c;
+  --cyan: #35d0ff;
+  --green: #22c98a;
+  --red: #ff5a72;
+  --gold: #ffc24b;
+
+  /* Aurora */
+  --aurora-1: #1c3ad6;
+  --aurora-2: #0e7fbf;
+
+  /* Gradientes */
+  --grad: linear-gradient(135deg, #1e3fd8 0%, #2f6bff 50%, #35d0ff 100%);
+  --grad-deep: linear-gradient(150deg, #0b1b6b 0%, #1633c0 60%, #2f6bff 100%);
+  --grad-text: linear-gradient(120deg, #4f8bff, #35d0ff 70%);
+  --grad-card: linear-gradient(160deg, rgba(47, 107, 255, 0.14), rgba(53, 208, 255, 0.04));
+  --grad-media: linear-gradient(160deg, #10173a, #070b1e);
+
+  /* Sombras */
+  --shadow-btn: 0 10px 34px rgba(47, 107, 255, 0.5);
+  --shadow-btn-hover: 0 14px 44px rgba(47, 107, 255, 0.65);
+  --shadow-feature: 0 20px 50px rgba(20, 50, 160, 0.4);
+  --shadow-media: 0 40px 90px rgba(0, 10, 60, 0.7);
+  --focus-ring: 0 0 0 4px rgba(79, 139, 255, 0.18);
+
+  /* Tipografia */
+  --font: "Space Grotesk", system-ui, sans-serif;
+  --body: "Inter", system-ui, sans-serif;
+
+  /* Formas */
+  --r-pill: 100px;
+  --r-card: 20px;
+  --r-card-lg: 24px;
+  --r-input: 14px;
+  --r-media: 24px;
+  --r-media-inner: 16px;
+  --container: 1080px;
+  --tap: 44px; /* altura mínima de toque */
+}
