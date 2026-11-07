@@ -30,6 +30,8 @@ import {
   localDateOf,
   localTimeOf,
   mondayOf,
+  isWeekday,
+  nextWeekday,
   weekdayShort,
 } from "../lib/time";
 import {
@@ -243,7 +245,9 @@ export async function handleAdmin(app: App, req: Request, path: string): Promise
 
   // ----- Agenda semanal -----
   if (res === "agenda" && req.method === "GET") {
-    const monday = mondayOf(dateParam(url.searchParams.get("week"), localDateOf(app.now())));
+    const today = localDateOf(app.now());
+    // No fim de semana, abre direto na semana seguinte.
+    const monday = mondayOf(dateParam(url.searchParams.get("week"), isWeekday(today) ? today : nextWeekday(today)));
     const days = [0, 1, 2, 3, 4].map((i) => addDays(monday, i));
     const from = fromLocal(monday);
     const to = fromLocal(addDays(monday, 5));
@@ -330,8 +334,10 @@ export async function handleAdmin(app: App, req: Request, path: string): Promise
       where = "b.status = 'ativo' AND b.window_end > ?";
       binds.push(now);
       order = "b.window_end ASC";
-    } else if (filter === "expired") where = "b.status = 'expirado' OR (b.status = 'ativo' AND b.window_end <= ?)", binds.push(now);
-    else if (filter === "refunded") where = "b.status = 'reembolsado'";
+    } else if (filter === "expired") {
+      where = "b.status = 'expirado' OR (b.status = 'ativo' AND b.window_end <= ?)";
+      binds.push(now);
+    } else if (filter === "refunded") where = "b.status = 'reembolsado'";
     else if (filter === "booked") where = "b.status = 'agendado'";
     else where = "1 = 1";
     if (q) {
